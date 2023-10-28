@@ -1,41 +1,12 @@
+class Expense:
+
+
+
+class ExpenseList:
+
+
 class BudgetTracker:
-    def __init__(self):
-        self.monthly_income = 0
-        self.expenses = []
 
-    # Add sepcified amount to the user's monthly income
-    def add_monthly_income(self, amount):
-        self.monthly_income += amount
-
-    # Add new expenses to the expense list
-    def add_expense(self, date, category, amount):
-        self.expenses.append({
-            "date": date,
-            "category": category,
-            "amount": amount
-        })
-
-    # Prints a list of all of the user's expenses
-    def view_expense_list(self):
-        print("Expense List:")
-        for expense in self.expenses:
-            print(f"{expense['date']} | {expense['category']} | {expense['amount']}")
-
-    # Removes an expense from the user's expense list at the specified index.
-    def remove_expense(self, index):
-        self.expenses.pop(index)
-
-    # Calculates the user's remaining income by subtracting the total amount of their expenses from their monthly income
-    def calculate_remaining_income(self):
-        total_expenses = 0
-        for expense in self.expenses:
-            total_expenses += expense["amount"]
-        remaining_income = self.monthly_income - total_expenses
-        return remaining_income
-
-    # Prints a thank you message and exits the program.
-    def exit(self):
-        print("Thank you!")
 
 def main():
     budget_tracker = BudgetTracker()
