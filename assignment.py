@@ -1,11 +1,11 @@
 class Expense:
-    def _init_(self, date, category, amount):
+    def __init__(self, date, category, amount):
         self.date = date
         self.category = category
         self.amount = amount
 
 class ExpenseList:
-    def _init_(self, expenses=[]):
+    def __init__(self, expenses=[]):
         self.expenses = expenses
 
     def add_expense(self, expense):
@@ -18,8 +18,9 @@ class ExpenseList:
         print("Expense List:")
         for expense in self.expenses:
             print(f"{expense.date} | {expense.category} | {expense.amount}")
+
 class BudgetTracker:
-    def _init_(self, monthly_income=0, expense_list=ExpenseList()):
+    def __init__(self, monthly_income=0, expense_list=ExpenseList()):
         self.monthly_income = monthly_income
         self.expense_list = expense_list
 
@@ -44,7 +45,7 @@ class BudgetTracker:
         return remaining_income
 
     def exit(self):
-        print("Thank you!")
+        print("Thank you!")
 
 def main():
     budget_tracker = BudgetTracker()
