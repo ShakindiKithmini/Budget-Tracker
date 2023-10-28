@@ -6,7 +6,32 @@ class ExpenseList:
 
 
 class BudgetTracker:
+    def _init_(self, monthly_income=0, expense_list=ExpenseList()):
+        self.monthly_income = monthly_income
+        self.expense_list = expense_list
 
+    def add_monthly_income(self, amount):
+        self.monthly_income += amount
+
+    def add_expense(self, date, category, amount):
+        expense = Expense(date, category, amount)
+        self.expense_list.add_expense(expense)
+
+    def view_expense_list(self):
+        self.expense_list.view_expense_list()
+
+    def remove_expense(self, index):
+        self.expense_list.remove_expense(index)
+
+    def calculate_remaining_income(self):
+        total_expenses = 0
+        for expense in self.expense_list.expenses:
+            total_expenses += expense.amount
+        remaining_income = self.monthly_income - total_expenses
+        return remaining_income
+
+    def exit(self):
+        print("Thank you!")
 
 def main():
     budget_tracker = BudgetTracker()
